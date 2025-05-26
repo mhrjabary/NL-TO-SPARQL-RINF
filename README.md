@@ -15,7 +15,7 @@ Project Design and Implemetation Figures and ALgorithms [can be found here](http
 ## Experiment Results
 Experiment Results including all questions, question justification, and corresponding SPARQL queries for both Models: can be found [here](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Experiment%20Results)
 
-## Visual Studio Code Standalone Deployment
+## Visual Studio Code Standalone Deployment, you will need to supply a paied version of chatGBT and Gemini API to handle the amount of passed tokens.
 You can deploy our work locally through Microsoft VSCode.
 1. Download the project files from [Source Code]([https://github.com/mhrjabary/LLMBased-NL-SPARQL/tree/main/VScode](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Source%20Code)).
 2. Look for `openai.api_key = ""`, and `genai.configure(api_key= "")` and use your own API keys.  
