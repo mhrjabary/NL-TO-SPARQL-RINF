@@ -1,9 +1,9 @@
 # LLM-Based Natural Language to SPARQL translation over a domain specific Rail Knowledge Graph
 This repository contains our:
 
-- [Project code](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Source%20Code)
-- [Competency Questions](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Experiment%20Results)
-- [Experiment results](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Experiment%20Results)
+- [Project Source Code](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Source%20Code)
+- [Competency Questions & Coressponding SPARQL Queries](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Experiment%20Results)
+- [Experiment Results](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Experiment%20Results)
 - [Project Design and Implemetation Figures and ALgorithms](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Figures)
 
 ## Introduction
