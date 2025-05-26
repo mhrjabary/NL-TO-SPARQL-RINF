@@ -11,6 +11,8 @@ This research paper presents a zero-shot LLM-Based approach to translate natural
 
 ## Design and Implementation
 Project Design and Implemetation Figures and ALgorithms [can be found here](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Figures)
+![Proposed Model Design](https://github.com/user-attachments/assets/880db58b-ee9d-44bc-a51a-24151e081392)
+
 
 ## Experiment Results
 Experiment Results including all questions, question justification, and corresponding SPARQL queries for both Models: can be found [here](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Experiment%20Results)
