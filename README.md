@@ -8,6 +8,14 @@ This repository contains our:
 ## Introduction
 This research paper presents a zero-shot LLM-Based approach to translate natural language queries into SPARQL over domain-specific KG. Experiments were conducted to examine and evaluate the capabilities of LLMs using GPT and Gemini to translate NL questions to SPARQL queries targeting the European Union Agency for Railways (Agency) Knowledge Graph (KG). Our approach proposes an unadorned fashion approach to perform a zero-shot SPARQL query generation by augmenting LLMs with different arrangements of previously extracted KG information without any prior natural language processing techniques on the input text. Experiment results indicates that augmenting LLM with vocabulary information extracted from a reduced KG ontology shows competitive performance levels for targeted LLM models compared to supplementing LLM with a reduced version of KG. Ultimately, our approach allows benchmarking over a wide spectrum of LLMs models, reduces the augmented KG information size while preserving response accuracy, and allowing off-domain users to interact with KG information and retrieve responses more effectively.
 
+## Design and Implementation
+
+
+
+## Experiment Results
+
+
+
 ## Visual Studio Code Standalone Deployment
 You can deploy our work locally through Microsoft VSCode.
 1. Download the project files from [VScode folder](https://github.com/mhrjabary/LLMBased-NL-SPARQL/tree/main/VScode).
