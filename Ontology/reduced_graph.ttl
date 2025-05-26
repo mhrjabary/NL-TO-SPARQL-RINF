@@ -1,0 +1,1610 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix ns2: <http://data.europa.eu/949/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns2:Border a owl:Class ;
+    rdfs:label "Border"@en .
+
+ns2:Certificate a owl:Class ;
+    rdfs:label "Certificate"@en .
+
+ns2:ContactLineSystem a owl:Class ;
+    rdfs:label "Contact Line System"@en ;
+    dcterms:created "2021-08-04"^^xsd:date ;
+    dcterms:modified "2021-08-04"^^xsd:date ;
+    rdfs:comment "System that is used to transmit electrical energy to road or rail vehicles."@en ;
+    rdfs:isDefinedBy ns2: ;
+    ns1:term_status "stable" .
+
+ns2:ETCSLevel a owl:Class ;
+    rdfs:label "ETCS Level"@en ;
+    dcterms:created "2021-08-07"^^xsd:date ;
+    dcterms:modified "2021-08-07"^^xsd:date ;
+    rdfs:comment "ERTMS / ETCS application level related to the track side equipment."@en ;
+    rdfs:isDefinedBy ns2: ;
+    ns1:term_status "stable" .
+
+ns2:Feature a owl:Class ;
+    rdfs:label "ERA Feature"@en .
+
+ns2:IdPhoneErtmsRadioBlockCenter a owl:DatatypeProperty ;
+    rdfs:label "ID and phone number of ERTMS/ETCS Radio Block Center"@en .
+
+ns2:InfrastructureManager a owl:Class ;
+    rdfs:label "Infrastructure manager"@en .
+
+ns2:LineReference a owl:Class ;
+    rdfs:label "Railway location"@en ;
+    dcterms:created "2021-01-29"^^xsd:date ;
+    dcterms:modified "2021-01-29"^^xsd:date ;
+    rdfs:comment "Railway location",
+        "A reference to a specific national railway line."@en ;
+    rdfs:isDefinedBy ns2: ;
+    ns1:term_status "stable" ;
+    skos:altLabel "Linear reference" .
+
+ns2:LoadCapability a owl:Class ;
+    rdfs:label "Load capability"@en ;
+    dcterms:created "2023-03-14"^^xsd:date ;
+    rdfs:comment """A combination of the line category and speed at the weakest point of the track. 
+Each track can have several load capability (structured) values, and each one has values for load model line category and load model speed."""@en,
+        "This class together with properties loadCapabilityLineCategory and loadCapabilitySpeed replaces the previous loadCapability SKOS property."@en ;
+    rdfs:isDefinedBy ns2: ;
+    ns1:term_status "stable" .
+
+ns2:Manufacturer a owl:Class ;
+    rdfs:label "Manufacturer"@en .
+
+ns2:MaximumMagneticField a owl:Class ;
+    rdfs:label "Maximum magnetic field"@en .
+
+ns2:MinAxleLoadVehicleCategory a owl:Class ;
+    rdfs:label "Min axle load vehicle category"@en ;
+    dcterms:created "2023-01-25"^^xsd:date ;
+    dcterms:modified "2023-03-14"@en ;
+    rdfs:comment "Deprecated according to the ammendment to the Regulation (EU) 2019/777. Represents information that indicates the load given in tons depending of the category of vehicle. Its properties are minAxleLoadVehicleCategory and minAxleLoad."@en ;
+    rdfs:isDefinedBy ns2: ;
+    owl:deprecated true ;
+    ns1:term_status "stable" .
+
+ns2:NationalRailwayLine a owl:Class ;
+    rdfs:label "National railway line"@en ;
+    dcterms:created "2021-01-25"^^xsd:date ;
+    dcterms:modified "2021-08-03"^^xsd:date ;
+    rdfs:comment "Railway line within a member state."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <https://wiki3.railml.org/DataModel/3.2/IS/EARoot/EA210.htm> ;
+    ns1:term_status "stable" .
+
+ns2:NetElement a owl:Class ;
+    rdfs:label "Net Element"@en ;
+    dcterms:created "2021-04-01"^^xsd:date ;
+    dcterms:modified "2021-04-01"^^xsd:date ;
+    rdfs:comment "Base class for defining nodes in the connectivity graph representing the topological network."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <https://rsm-evolution.org/220927_RSM/EARoot/EA2/EA2/EA287.html>,
+        <https://wiki3.railml.org/DataModel/3.2/IS/EARoot/EA227.htm>,
+        "http://wiki.railtopomodel.org/index.php?title=Main_Page" ;
+    rdfs:subClassOf ns2:TopologicalObject ;
+    ns1:term_status "stable" .
+
+ns2:NetRelation a owl:Class ;
+    rdfs:label "Net Relation"@en ;
+    dcterms:created "2021-04-01"^^xsd:date ;
+    dcterms:modified "2021-04-01"^^xsd:date ;
+    rdfs:comment "Base class for defining edges in the connectivity graph representing the topological network."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <https://rsm-evolution.org/220927_RSM/EARoot/EA2/EA2/EA292.html>,
+        <https://wiki3.railml.org/DataModel/3.2/IS/EARoot/EA230.htm>,
+        "http://wiki.railtopomodel.org/index.php?title=Main_Page" ;
+    rdfs:subClassOf ns2:TopologicalObject ;
+    ns1:term_status "stable" .
+
+ns2:OperationalPoint a owl:Class ;
+    rdfs:label "Operational Point"@en ;
+    ns2:appendixD2Index "2.1.2" ;
+    dcterms:created "2020-07-29"^^xsd:date ;
+    dcterms:modified "2022-07-07"^^xsd:date ;
+    rdfs:comment """An operational point (OP) means any location for train service operations, where train services may begin and end or change route, and where passenger or freight services may be provided; operational point also means any location at boundaries between Member States or infrastructure managers.
+In https://eur-lex.europa.eu/eli/reg_impl/2019/773/oj 2.1.2 Principal locations (stations, yards, junctions, freight terminals)."""@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <https://wiki3.railml.org/DataModel/3.2/IS/EARoot/EA238.htm> ;
+    rdfs:subClassOf ns2:InfrastructureObject ;
+    ns1:term_status "stable" .
+
+ns2:Platform a owl:Class ;
+    rdfs:label "Platform"@en .
+
+ns2:SectionOfLine a owl:Class ;
+    rdfs:label "Section Of Line"@en ;
+    ns2:appendixD2Index "2.1.1" ;
+    dc:source <https://eur-lex.europa.eu/eli/reg_impl/2019/773/oj> ;
+    dcterms:created "2021-04-02"^^xsd:date ;
+    dcterms:modified "2022-07-07"^^xsd:date ;
+    rdfs:comment """A section of line means the part of line between adjacent operational points and may consist of several tracks.
+In https://eur-lex.europa.eu/eli/reg_impl/2019/773/oj 2.1.1 Line sections."""@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf [ ],
+        [ ],
+        [ ],
+        ns2:InfrastructureObject ;
+    ns1:term_status "stable" .
+
+ns2:Siding a owl:Class ;
+    rdfs:label "Siding"@en ;
+    dcterms:created "2021-08-10"^^xsd:date ;
+    dcterms:modified "2022-10-27"^^xsd:date ;
+    dcterms:source "Official Journal of the European Union L 139 I/85" ;
+    rdfs:comment "Sidings are all those tracks where running trains in service movements ends and which are not used for operational routing of a train."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf ns2:Track ;
+    ns1:term_status "stable" ;
+    skos:definition "Siding Any track(s) within an operational point which is not used for operational routing of a train."@en .
+
+ns2:Signal a owl:Class ;
+    rdfs:label "Signal"@en .
+
+ns2:SpecialArea a owl:Class ;
+    rdfs:label "Special area"@en .
+
+ns2:SpecialTunnelArea a owl:Class ;
+    rdfs:label "Special tunnel area"@en .
+
+ns2:SubsetWithCommonCharacteristics a owl:Class ;
+    rdfs:label "Subset with common characteristics"@en .
+
+ns2:TSIMagneticFields a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Existence and TSI compliance of rules for magnetic fields emitted by a vehicle"@en .
+
+ns2:TSITractionHarmonics a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Existence and TSI compliance of limits in harmonics in the traction current of vehicles"@en .
+
+ns2:TrainDetectionSystem a owl:Class ;
+    rdfs:label "Train Detection System"@en ;
+    dcterms:created "2021-08-07"^^xsd:date ;
+    dcterms:modified "2021-08-07"^^xsd:date ;
+    rdfs:comment "System used to detect the position of vehicles in the railway track."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <https://wiki3.railml.org/DataModel/3.2/IS/EARoot/EA402.htm> ;
+    ns1:term_status "stable" .
+
+ns2:Tunnel a owl:Class ;
+    rdfs:label "Tunnel"@en ;
+    dc:source <https://eur-lex.europa.eu/eli/reg_impl/2019/773/oj> ;
+    dcterms:created "2020-07-29"^^xsd:date ;
+    dcterms:modified "2022-07-07"^^xsd:date ;
+    rdfs:comment "A railway tunnel is an excavation or a construction around the track provided to allow the railway to pass for example higher land, buildings or water."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf ns2:InfrastructureObject ;
+    ns1:term_status "stable" .
+
+ns2:Vehicle a owl:Class ;
+    rdfs:label "Vehicle"@en .
+
+ns2:VehicleKeeper a owl:Class ;
+    rdfs:label "Vehicle Keeper"@en .
+
+ns2:VehicleType a owl:Class ;
+    rdfs:label "Vehicle Type"@en .
+
+ns2:accelerationLevelCrossing a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Acceleration allowed at level crossing"@en .
+
+ns2:additionalBrakingInformationDocument a owl:DatatypeProperty ;
+    rdfs:label "Documents available by the IM relating to braking performance"@en .
+
+ns2:alternativeName a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Alternative name"@en .
+
+ns2:altitudeRange a owl:DatatypeProperty ;
+    rdfs:label "Altitude range"@en .
+
+ns2:altitudeRangeDetail a owl:DatatypeProperty ;
+    rdfs:label "Altitude range detail"@en .
+
+ns2:areaBoardingAid a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Information of the train access level for which the boarding aid can be used."@en .
+
+ns2:assistanceStartingTrain a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of platform assistance for starting train"@en .
+
+ns2:atoCommunicationSystem a owl:ObjectProperty ;
+    rdfs:label "ATO communication system"@en .
+
+ns2:atoErrorCorrectionsOnboard a owl:DatatypeProperty ;
+    rdfs:label "ATO error corrections required for the on-board"@en .
+
+ns2:atoGradeAutomation a owl:ObjectProperty ;
+    rdfs:label "ATO Grade of Automation"@en .
+
+ns2:atoSystemVersion a owl:ObjectProperty ;
+    rdfs:label "ATO System version"@en .
+
+ns2:authorizedCountry a owl:ObjectProperty ;
+    rdfs:label "Authorized country"@en .
+
+ns2:automaticDroppingDeviceRequired a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Automatic dropping device required"@en .
+
+ns2:axleBearingConditionMonitoring a owl:ObjectProperty ;
+    rdfs:label "Axle bearing condition monitoring"@en .
+
+ns2:axleSpacing a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Axle spacing"@en .
+
+ns2:bigMetalMass a owl:DatatypeProperty ;
+    rdfs:label "Big metal mass"@en .
+
+ns2:boardingAids a owl:DatatypeProperty ;
+    rdfs:label "Boarding aids"@en .
+
+ns2:borderPointOf a owl:ObjectProperty ;
+    rdfs:label "Border point of"@en .
+
+ns2:brakeWeightPercentage a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Brake weight percentage"@en .
+
+ns2:bridge a owl:DatatypeProperty ;
+    rdfs:label "Is bridge"@en .
+
+ns2:cantDefficiency a owl:DatatypeProperty ;
+    rdfs:label "Cant defficiency"@en .
+
+ns2:cantDeficiency a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Cant deficiency"@en .
+
+ns2:cantDeficiencyBasicSSP a owl:ObjectProperty ;
+    rdfs:label "Cant Deficiency used for the basic SSP"@en .
+
+ns2:category a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Vehicle category"@en .
+
+ns2:catenaryMaxRatedCurrent a owl:DatatypeProperty ;
+    rdfs:label "Catenary max rated current"@en .
+
+ns2:certificate a owl:ObjectProperty ;
+    rdfs:label "Certificate"@en .
+
+ns2:compatibilityProcedureDocument a owl:DatatypeProperty ;
+    rdfs:label "Document with the procedure(s) for static and dynamic route compatibility checks"@en .
+
+ns2:complianceInfTsi a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Compliance of the tunnel with INF TSI"@en .
+
+ns2:compositeBrakeBlockRetrofitted a owl:DatatypeProperty ;
+    rdfs:label "Composite brake block retrofitted"@en .
+
+<http://data.europa.eu/949/concepts/op-types/borderStation> a owl:NamedIndividual .
+
+<http://data.europa.eu/949/concepts/op-types/station> a owl:NamedIndividual .
+
+ns2:conditionalRegenerativeBrake a owl:DatatypeProperty ;
+    rdfs:label "Permission for regenerative braking"@en .
+
+ns2:conditionsAppliedRegenerativeBraking a owl:DatatypeProperty ;
+    rdfs:label "Conditions applying in regards to regenerative braking"@en .
+
+ns2:conditionsChargingElectricEnergyStorage a owl:DatatypeProperty ;
+    rdfs:label "Permitted conditions for charging electric energy storage for traction purposes at standstill"@en .
+
+ns2:conditionsSwitchClassBSystems a owl:DatatypeProperty ;
+    rdfs:label "Special technical conditions required to switch over between ERTMS/ETCS and Class B systems"@en .
+
+ns2:conditionsSwitchTrainProtectionSystems a owl:DatatypeProperty ;
+    rdfs:label "Special conditions to switch over between different class B train protection, control and warning systems"@en .
+
+ns2:conditionsTrainFormation a owl:DatatypeProperty ;
+    rdfs:label "Conditions train formation"@en .
+
+ns2:conditionsUseReflectivePlates a owl:ObjectProperty ;
+    rdfs:label "Conditions for use of reflective plates"@en .
+
+ns2:contactLineSystem a owl:ObjectProperty ;
+    rdfs:label "Contact line system"@en .
+
+ns2:contactLineSystemType a owl:ObjectProperty ;
+    rdfs:label "Type of contact line system"@en .
+
+ns2:contactStripMaterial a owl:ObjectProperty ;
+    rdfs:label "Permitted contact strip material"@en .
+
+ns2:contactStripMaterialMetallicContent a owl:DatatypeProperty ;
+    rdfs:label "Contact strip material metallic content"@en .
+
+ns2:crossSectionArea a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Cross section area"@en .
+
+ns2:currentLimitationRequired a owl:DatatypeProperty ;
+    rdfs:label "Current or power limitation on board required"@en .
+
+ns2:currentlyValid a owl:DatatypeProperty ;
+    rdfs:label "Currently valid"@en .
+
+ns2:dNvovtrp a owl:DatatypeProperty ;
+    rdfs:label "D_NVOVTRP"@en .
+
+ns2:dNvpotrp a owl:DatatypeProperty ;
+    rdfs:label "D_NVPOTRP"@en .
+
+ns2:dNvroll a owl:DatatypeProperty ;
+    rdfs:label "D_NVROLL"@en .
+
+ns2:dangerousGoodsTankCode a owl:DatatypeProperty ;
+    rdfs:label "Dangerous goods tank code"@en .
+
+ns2:dataGSMRNetwork a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Data GSM-R network"@en .
+
+ns2:dataRadioCompatible a owl:ObjectProperty ;
+    rdfs:label "Radio system compatibility data"@en .
+
+ns2:definesSubset a owl:ObjectProperty ;
+    rdfs:label "Defines subset"@en .
+
+ns2:demonstrationENE a owl:DatatypeProperty ;
+    rdfs:label "EI declaration of demonstration for track (ENE)"@en .
+
+ns2:demonstrationINF a owl:DatatypeProperty ;
+    rdfs:label "EI declaration of demonstration for track/siding [INF]"@en .
+
+ns2:demonstrationSRT a owl:DatatypeProperty ;
+    rdfs:label "EI declaration of demonstration for tunnel (SRT)"@en .
+
+ns2:designMassExceptionalPayload a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Design mass under exceptional payload"@en .
+
+ns2:designMassNormalPayload a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Design mass under normal payload"@en .
+
+ns2:designMassWorkingOrder a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Design mass in working order"@en .
+
+ns2:dieselThermalAllowed a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Diesel or other thermal traction allowed"@en .
+
+ns2:digitalSchematicOverview a owl:DatatypeProperty ;
+    rdfs:label "Digital schematic overview"@en .
+
+ns2:distSignToPhaseEnd a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Distance between signboard and phase separation ending"@en .
+
+ns2:documentRestrictionPositionContactLineSeparation a owl:DatatypeProperty ;
+    rdfs:label "Document with restriction related to the position of Multiple Traction unit(s) to comply with contact line separation"@en .
+
+ns2:documentRestrictionPowerConsumption a owl:DatatypeProperty ;
+    rdfs:label "Document with restriction related to power consumption of specific electric traction unit(s)"@en .
+
+ns2:drivingCabs a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Driving cabs"@en .
+
+ns2:eddyCurrentBrakePrevention a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Eddy current brake prevention"@en .
+
+ns2:eddyCurrentBraking a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Use of eddy current brakes"@en .
+
+ns2:eddyCurrentBrakingConditionsDocument a owl:DatatypeProperty ;
+    rdfs:label "Document with the conditions for the use of eddy current brakes"@en .
+
+ns2:eddyCurrentBrakingFitted a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Eddy current braking fitted"@en .
+
+ns2:elementA a owl:ObjectProperty ;
+    rdfs:label "Element A"@en .
+
+ns2:elementB a owl:ObjectProperty ;
+    rdfs:label "Element B"@en .
+
+ns2:elementPart a owl:ObjectProperty ;
+    rdfs:label "Element part"@en .
+
+ns2:emergencyBrake a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Emergency braking"@en .
+
+ns2:endCouplingType a owl:ObjectProperty ;
+    rdfs:label "End coupling type"@en .
+
+ns2:endIntrinsicCoordinate a owl:DatatypeProperty ;
+    rdfs:label "End intrinsic coordinate"@en .
+
+ns2:endLocation a owl:ObjectProperty ;
+    rdfs:label "End of tunnel"@en .
+
+ns2:energyMeterInstalled a owl:DatatypeProperty ;
+    rdfs:label "Energy meter installed"@en .
+
+ns2:energySupplyMaxPower a owl:DatatypeProperty ;
+    rdfs:label "Energy supply max power"@en .
+
+ns2:energySupplySystem a owl:ObjectProperty ;
+    rdfs:label "Energy supply system"@en .
+
+ns2:energySupplySystemTSICompliant a owl:DatatypeProperty ;
+    rdfs:label "Energy supply system TSI compliant"@en .
+
+ns2:etcsBaseline a owl:ObjectProperty ;
+    rdfs:label "ETCS baseline"@en .
+
+ns2:etcsDataCommApp a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "ETCS data communication application"@en .
+
+ns2:etcsDegradedSituation a owl:ObjectProperty ;
+    rdfs:label "ETCS level for degraded situation"@en .
+
+ns2:etcsEquipmentOnBoardLevel a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "ETCS equipment level"@en .
+
+ns2:etcsErrorCorrectionsOnboard a owl:DatatypeProperty ;
+    rdfs:label "ETCS error corrections required for the on-board"@en .
+
+ns2:etcsImplementsLevelCrossingProcedure a owl:DatatypeProperty ;
+    rdfs:label "ETCS trackside implements level crossing procedure or an equivalent solution"@en .
+
+ns2:etcsInfill a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "ETCS infill installed lineside"@en .
+
+ns2:etcsInfillLineAccess a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "ETCS infill necessary for line access"@en .
+
+ns2:etcsLevel a owl:ObjectProperty ;
+    rdfs:label "Etcs level"@en .
+
+ns2:etcsLevelType a owl:ObjectProperty ;
+    rdfs:label "ETCS level type"@en .
+
+ns2:etcsMVersion a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "ETCS M_version"@en .
+
+ns2:etcsNationalApplications a owl:DatatypeProperty ;
+    rdfs:label "ETCS national applications"@en .
+
+ns2:etcsNationalPacket44 a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "ETCS national packet 44 application implemented"@en .
+
+ns2:etcsOnBoardImplementation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "ETCS on-board implementation"@en .
+
+ns2:etcsOptionalFunctions a owl:DatatypeProperty ;
+    rdfs:label "ETCS optional functions"@en .
+
+ns2:etcsSystemCompatibility a owl:ObjectProperty ;
+    rdfs:label "ETCS system compatibility"@en .
+
+ns2:etcsSystemFunctionalitiesNextFiveYears a owl:DatatypeProperty ;
+    rdfs:label "ETCS system version 2.2 or 3.0 functionalities to be required in the next 5 years"@en .
+
+ns2:etcsTransmitsTrackConditions a owl:DatatypeProperty ;
+    rdfs:label "Is the ETCS trackside engineered to transmit Track Conditions"@en .
+
+ns2:etcsTransmittedTrackConditions a owl:ObjectProperty ;
+    rdfs:label "Track conditions which can be transmitted"@en .
+
+ns2:ferromagneticWheelMaterial a owl:DatatypeProperty ;
+    rdfs:label "Ferromagnetic wheel material"@en .
+
+ns2:fireSafetyCategory a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Fire safety category"@en .
+
+ns2:fixedSeats a owl:DatatypeProperty ;
+    rdfs:label "Fixed seats"@en .
+
+ns2:flangeLubeForbidden a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Use of flange lubrication forbidden"@en .
+
+ns2:flangeLubeRules a owl:DatatypeProperty ;
+    rdfs:label "Existence of rules on on-board flange lubrication"@en .
+
+ns2:flangeLubricationFitted a owl:DatatypeProperty ;
+    rdfs:label "Flange lubrication fitted"@en .
+
+ns2:freightCorridor a owl:ObjectProperty ;
+    rdfs:label "Part of a Railway freight corridor"@en .
+
+ns2:frenchTrainDetectionSystemLimitation a owl:ObjectProperty ;
+    rdfs:label "Section with train detection limitation, only for the French network"@en .
+
+ns2:frequencyBandsForDetection a owl:ObjectProperty ;
+    rdfs:label "Frequency bands for detection"@en .
+
+ns2:gaugingCheckLocation a owl:DatatypeProperty ;
+    rdfs:label "Railway location of particular points requiring specific checks"@en .
+
+ns2:gaugingProfile a owl:ObjectProperty ;
+    rdfs:label "Gauging"@en .
+
+ns2:gaugingTransversalDocument a owl:DatatypeProperty ;
+    rdfs:label "Document with the transversal section of the particular points requiring specific checks"@en .
+
+ns2:gprsForETCS a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "GPRS for ETCS"@en .
+
+ns2:gprsImplementationArea a owl:DatatypeProperty ;
+    rdfs:label "Area of implementation of GPRS"@en .
+
+ns2:gradient a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Gradient for stabling tracks"@en .
+
+ns2:gradientProfile a owl:DatatypeProperty ;
+    rdfs:label "Gradient profile"@en .
+
+ns2:gsmRActiveMobiles a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Number of active GSM-R mobiles (EDOR) or simultaneous communication session on-board for ETCS Level 2 (or level 3) needed to perform radio block centre handovers without having an operational disruption"@en .
+
+ns2:gsmRAdditionalInfo a owl:DatatypeProperty ;
+    rdfs:label "Additional information on network characteristics"@en .
+
+ns2:gsmRNoCoverage a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "No GSM-R coverage"@en .
+
+ns2:gsmROptionalFunctions a owl:ObjectProperty ;
+    rdfs:label "Optional GSM-R functions"@en .
+
+ns2:gsmRRadioDataCommunication a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "GSM-R radio data communication"@en .
+
+ns2:gsmRSetsInDrivingCab a owl:DatatypeProperty ;
+    rdfs:label "GSM-R sets in driving cab"@en .
+
+ns2:gsmRVersion a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "GSM-R version"@en .
+
+ns2:gsmrConstraintsOperateOnlyInCircuitSwitch a owl:ObjectProperty ;
+    rdfs:label "Specific constraints imposed by the GSM-R network operator on ETCS on-board units only able to operate in circuit-switch"@en .
+
+ns2:gsmrErrorCorrectionsOnboard a owl:DatatypeProperty ;
+    rdfs:label "GSM-R error corrections required for the on-board"@en .
+
+ns2:gsmrForcedDeregistrationFunctionalNumber a owl:DatatypeProperty ;
+    rdfs:label "GSM-R network is configured to allow forced de-registration of a functional number by another driver"@en .
+
+ns2:gsmrNetworkCoverage a owl:ObjectProperty ;
+    rdfs:label "GSM-R networks covered by a roaming agreement"@en .
+
+ns2:hasAbstraction a owl:ObjectProperty ;
+    rdfs:label "Has abstraction"@en .
+
+ns2:hasAdditionalBrakingInformation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Availability by the IM of additional information"@en .
+
+ns2:hasAutomaticDroppingDevice a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Has automatic dropping device"@en .
+
+ns2:hasBallast a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of ballast"@en .
+
+ns2:hasCantDefficiencyCompensation a owl:DatatypeProperty ;
+    rdfs:label "Has cant defficiency compensation"@en .
+
+ns2:hasCurrentLimitation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Has current limitation"@en .
+
+ns2:hasETCSRestrictionsConditions a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of operating restrictions or conditions"@en .
+
+ns2:hasElectricShoreSupply a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of electric shore supply"@en .
+
+ns2:hasEmergencyPlan a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of emergency plan"@en .
+
+ns2:hasEvacuationAndRescuePoints a owl:DatatypeProperty ;
+    rdfs:label "Existence of evacuation and rescue points"@en .
+
+ns2:hasExternalCleaning a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of external cleaning facilities"@en .
+
+ns2:hasHotAxleBoxDetector a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of trackside hot axle box detector (HABD)"@en .
+
+ns2:hasImplementation a owl:ObjectProperty ;
+    rdfs:label "Has implementation"@en .
+
+ns2:hasLevelCrossings a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of level crossings"@en .
+
+ns2:hasLubricationDevicePrevention a owl:DatatypeProperty ;
+    rdfs:label "Has lubrication device prevention"@en .
+
+ns2:hasOtherTrainProtection a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of other train protection, control and warning systems installed"@en .
+
+ns2:hasParkingBrake a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Has parking brake"@en .
+
+ns2:hasPlatformCurvature a owl:DatatypeProperty ;
+    rdfs:label "Existence of  platform curvature"@en .
+
+ns2:hasRefuelling a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of refuelling"@en .
+
+ns2:hasRegenerativeBrake a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Permission for regenerative braking"@en .
+
+ns2:hasSandRestocking a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of sand restocking"@en .
+
+ns2:hasSandingPrevention a owl:DatatypeProperty ;
+    rdfs:label "Has sanding prevention"@en .
+
+ns2:hasSchematicOverviewOPDigitalForm a owl:DatatypeProperty ;
+    rdfs:label "Has schematic overview in digital form"@en .
+
+ns2:hasSevereWeatherConditions a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of severe climatic conditions"@en .
+
+ns2:hasShuntingRestrictions a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Has shunting restrictions"@en .
+
+ns2:hasSignal a owl:ObjectProperty ;
+    rdfs:label "Has signal"@en .
+
+ns2:hasSystemSeparation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "System separation"@en .
+
+ns2:hasTSITrainDetection a owl:DatatypeProperty ;
+    rdfs:label "Existence of train detection system fully compliant with the TSI"@en .
+
+ns2:hasToiletDischarge a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of toilet discharge"@en .
+
+ns2:hasTrainIntegrityConfirmation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Has train integrity confirmation"@en .
+
+ns2:hasWalkway a owl:DatatypeProperty ;
+    rdfs:label "Existence of walkways"@en .
+
+ns2:hasWaterRestocking a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of water restocking"@en .
+
+ns2:hasWheelSlideProtectionSystem a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Has wheel slide protection system"@en .
+
+ns2:highSpeedLoadModelCompliance a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Compliance of structures with the High Speed Load Model (HSLM) dynamic load model"@en .
+
+ns2:hotAxleBoxDetectorDirection a owl:ObjectProperty ;
+    rdfs:label "Hot axle box detector direction"@en .
+
+ns2:hotAxleBoxDetectorGeneration a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Generation of trackside HABD"@en .
+
+ns2:hotAxleBoxDetectorIdentification a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Identification of trackside HABD"@en .
+
+ns2:hotAxleBoxDetectorLocation a owl:DatatypeProperty ;
+    rdfs:label "Railway location of trackside HABD"@en .
+
+ns2:hotAxleBoxDetectorTSICompliant a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Trackside HABD TSI compliant"@en .
+
+ns2:imCode a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "IM's code"@en .
+
+ns2:inCountry a owl:ObjectProperty ;
+    rdfs:label "In country"@en .
+
+ns2:infrastructureMgr a owl:ObjectProperty ;
+    rdfs:label "Infrastructure manager"@en .
+
+ns2:instructionsSwitchRadioSystems a owl:DatatypeProperty ;
+    rdfs:label "Special instructions to switch over between different radio systems"@en .
+
+ns2:isQuietRoute a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Belonging to a quieter route"@en .
+
+ns2:kilometer a owl:DatatypeProperty ;
+    rdfs:label "Kilometer"@en .
+
+ns2:legacyRadioSystem a owl:ObjectProperty ;
+    rdfs:label "Other radio systems installed (Radio Legacy Systems)"@en .
+
+ns2:length a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Length"@en .
+
+ns2:letterMarking a owl:DatatypeProperty ;
+    rdfs:label "Letter marking"@en .
+
+ns2:lineCategory a owl:ObjectProperty ;
+    rdfs:label "Category of line"@en .
+
+ns2:lineNationalId a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "National line identification"@en .
+
+ns2:lineReference a owl:ObjectProperty ;
+    rdfs:label "Railway location of Operational point"@en .
+
+ns2:linearCoordinate a owl:DatatypeProperty ;
+    rdfs:label "Linear coordinate"@en .
+
+ns2:linesideDistanceIndicationAppearance a owl:ObjectProperty ;
+    rdfs:label "Lineside distance indication appearance"@en .
+
+ns2:linesideDistanceIndicationFrequency a owl:DatatypeProperty ;
+    rdfs:label "Lineside distance indication frequency"@en .
+
+ns2:linesideDistanceIndicationPositioning a owl:ObjectProperty ;
+    rdfs:label "Lineside distance indication positioning"@en .
+
+ns2:loadCapability a owl:ObjectProperty ;
+    rdfs:label "Load Capability"@en .
+
+ns2:loadCapabilityLineCategory a owl:ObjectProperty ;
+    rdfs:label "Load capability line category"@en .
+
+ns2:loadCapabilitySpeed a owl:DatatypeProperty ;
+    rdfs:label "Load capability speed"@en .
+
+ns2:loadingPlatformHeight a owl:DatatypeProperty ;
+    rdfs:label "Loading platform height"@en .
+
+ns2:localRulesOrRestrictions a owl:DatatypeProperty ;
+    rdfs:label "Existence of rules and restrictions of a strictly local nature."@en .
+
+ns2:localRulesOrRestrictionsDoc a owl:DatatypeProperty ;
+    rdfs:label "Documents regarding the rules or restrictions of a strictly local nature available by the IM"@en .
+
+ns2:mNvcontact a owl:ObjectProperty ;
+    rdfs:label "M_NVCONTACT"@en .
+
+ns2:mNvderun a owl:DatatypeProperty ;
+    rdfs:label "M_NVDERUN"@en .
+
+ns2:magneticBrakePrevention a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Magnetic brake prevention"@en .
+
+ns2:magneticBraking a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Use of magnetic brakes"@en .
+
+ns2:magneticBrakingConditionsDocument a owl:DatatypeProperty ;
+    rdfs:label "Document with the conditions for the use of magnetic brakes"@en .
+
+ns2:magneticBrakingFitted a owl:DatatypeProperty ;
+    rdfs:label "Magnetic braking fitted"@en .
+
+ns2:manufacturer a owl:ObjectProperty ;
+    rdfs:label "Manufacturer"@en .
+
+ns2:manufacturingCountry a owl:ObjectProperty ;
+    rdfs:label "Manufacturing country"@en .
+
+ns2:massPerWheel a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Mass per wheel"@en .
+
+ns2:maxCurrentStandstillPantograph a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum current at standstill per pantograph"@en .
+
+ns2:maxDistConsecutiveAxles a owl:DatatypeProperty ;
+    rdfs:label "Maximum permitted distance between two consecutive axles in case of TSI non-compliance"@en .
+
+ns2:maxDistEndTrainFirstAxle a owl:DatatypeProperty ;
+    rdfs:label "Maximum distance between end of train and first axle"@en .
+
+ns2:maxFlangeHeight a owl:DatatypeProperty ;
+    rdfs:label "Maximum permitted height of the flange"@en .
+
+ns2:maxImpedanceWheelset a owl:DatatypeProperty ;
+    rdfs:label "Maximum permitted impedance between opposite wheels of a wheelset when not TSI compliant"@en .
+
+ns2:maxLengthVehicleNose a owl:DatatypeProperty ;
+    rdfs:label "Maximum length vehicle nose"@en .
+
+ns2:maxSandingOutput a owl:ObjectProperty ;
+    rdfs:label "Maximum amount of sand"@en .
+
+ns2:maxTrainCurrent a owl:DatatypeProperty ;
+    rdfs:label "Maximum train current"@en .
+
+ns2:maximumAltitude a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum altitude"@en .
+
+ns2:maximumAverageDeceleration a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum average deceleration"@en .
+
+ns2:maximumBrakeThermalEnergyCapacity a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum brake thermal energy capacity"@en .
+
+ns2:maximumBrakingDistance a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum braking distance requested"@en .
+
+ns2:maximumContactWireHeight a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum contact wire height"@en .
+
+ns2:maximumDesignSpeed a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum design speed"@en .
+
+ns2:maximumInterferenceCurrent a owl:DatatypeProperty ;
+    rdfs:label "Maximum interference current"@en .
+
+ns2:maximumLocomotivesCoupled a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum locomotives coupled"@en .
+
+ns2:maximumMagneticFieldDirectionX a owl:DatatypeProperty ;
+    rdfs:label "Maximum magnetic field direction X"@en .
+
+ns2:maximumMagneticFieldDirectionY a owl:DatatypeProperty ;
+    rdfs:label "Maximum magnetic field direction Y"@en .
+
+ns2:maximumMagneticFieldDirectionZ a owl:DatatypeProperty ;
+    rdfs:label "Maximum magnetic field direction Z"@en .
+
+ns2:maximumPermittedSpeed a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum permitted speed"@en .
+
+ns2:maximumServiceBrake a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum service break"@en .
+
+ns2:maximumSpeedAndCantDeficiency a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum speed and cant deficiency"@en .
+
+ns2:maximumSpeedEmpty a owl:DatatypeProperty ;
+    rdfs:label "Maximum speed empty"@en .
+
+ns2:maximumTemperature a owl:DatatypeProperty ;
+    rdfs:label "Temperature range (maximum)"@en .
+
+ns2:maximumTrainDeceleration a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Maximum train deceleration"@en .
+
+ns2:meetsRequirementVehicleAuthorisation a owl:DatatypeProperty ;
+    rdfs:label "Meets requirement vehicle authorization"@en .
+
+ns2:minAxleLoad a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Minimum permitted axle load"@en .
+
+ns2:minAxleLoadVehicleCategory a owl:ObjectProperty ;
+    rdfs:label "Minimum axle load vehicle category"@en .
+
+ns2:minDistConsecutiveAxles a owl:DatatypeProperty ;
+    rdfs:label "Minimum permitted distance between two consecutive axles"@en .
+
+ns2:minDistFirstLastAxle a owl:DatatypeProperty ;
+    rdfs:label "Minimum permitted distance between first and last axle"@en .
+
+ns2:minFlangeHeight a owl:DatatypeProperty ;
+    rdfs:label "Minimum permitted height of the flange"@en .
+
+ns2:minFlangeThickness a owl:DatatypeProperty ;
+    rdfs:label "Minimum permitted thickness of the flange"@en .
+
+ns2:minRimWidth a owl:DatatypeProperty ;
+    rdfs:label "Minimum permitted width of the rim"@en .
+
+ns2:minVehicleImpedance a owl:DatatypeProperty ;
+    rdfs:label "Vehicle impedance"@en .
+
+ns2:minWheelDiameter a owl:DatatypeProperty ;
+    rdfs:label "Minimum permitted wheel diameter"@en .
+
+ns2:minimumConcaveVerticalRadius a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Minimum concave vertical radius"@en .
+
+ns2:minimumContactWireHeight a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Minimum contact wire height"@en .
+
+ns2:minimumConvexVerticalRadius a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Minimum convex vertical radius"@en .
+
+ns2:minimumHorizontalRadius a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Minimum radius of horizontal curve"@en .
+
+ns2:minimumTemperature a owl:DatatypeProperty ;
+    rdfs:label "Temperature range (minimum)"@en .
+
+ns2:minimumVerticalRadius a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Minimum radius of vertical curve"@en .
+
+ns2:minimumWheelDiameter a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Minimum wheel diameter for fixed obtuse crossings"@en .
+
+ns2:multipleTrainProtectionRequired a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Need for more than one train protection, control and warning system required on board"@en .
+
+ns2:nationalLoadCapability a owl:DatatypeProperty ;
+    rdfs:label "National classification for load capability"@en .
+
+ns2:nationalRollingStockFireCategory a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "National fire category of rolling stock required"@en .
+
+ns2:nationalValuesBrakeModel a owl:DatatypeProperty ;
+    rdfs:label "National Values used for the brake model"@en .
+
+ns2:navigability a owl:ObjectProperty ;
+    rdfs:label "Navigability"@en .
+
+ns2:netElement a owl:ObjectProperty ;
+    rdfs:label "Net element"@en .
+
+ns2:nonCodedRestrictions a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Non coded restrictions"@en .
+
+ns2:notApplicable a owl:ObjectProperty ;
+    rdfs:label "Not applicable"@en .
+
+ns2:notYetAvailable a owl:ObjectProperty ;
+    rdfs:label "Not yet available"@en .
+
+ns2:numberElementsRakeFreightWagons a owl:DatatypeProperty ;
+    rdfs:label "Number elements rake freight wagons"@en .
+
+ns2:numberOfPantographsInContactWithOCL a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Number of pantographs in contact with OCL"@en .
+
+ns2:numberOfToilets a owl:DatatypeProperty ;
+    rdfs:label "Number of toilets"@en .
+
+ns2:oclType a owl:DatatypeProperty ;
+    rdfs:label "Ocl type"@en .
+
+ns2:opEnd a owl:ObjectProperty ;
+    rdfs:label "Operational Point at end of Section of Line"@en .
+
+ns2:opInfoPerCountry a owl:ObjectProperty ;
+    rdfs:label "Border point information per country"@en .
+
+ns2:opName a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Name of Operational point"@en .
+
+ns2:opStart a owl:ObjectProperty ;
+    rdfs:label "Operational Point at start of Section of Line"@en .
+
+ns2:opType a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Type of operational point"@en .
+
+ns2:opTypeGaugeChangeover a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Type of track gauge changeover facility"@en .
+
+ns2:operatingLanguage a owl:ObjectProperty ;
+    rdfs:label "Operating language"@en .
+
+ns2:operationalRegimeType a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Operational regime type"@en .
+
+ns2:operationalRestriction a owl:ObjectProperty ;
+    rdfs:label "Operational restriction"@en .
+
+ns2:osmClass a owl:ObjectProperty ;
+    rdfs:label "Open street map class"@en .
+
+ns2:otherCantDeficiencyBasicSSP a owl:ObjectProperty ;
+    rdfs:label "Other Cant Deficiency train categories for which the ETCS trackside is configured to provide SSP"@en .
+
+ns2:otherPantographHead a owl:ObjectProperty ;
+    rdfs:label "Accepted other pantograph heads"@en .
+
+ns2:otherTrainProtection a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Other train protection, control and warning systems for degraded situation"@en .
+
+ns2:parkingBrake a owl:DatatypeProperty ;
+    rdfs:label "Parking brake"@en .
+
+ns2:parkingBrakeMandatory a owl:DatatypeProperty ;
+    rdfs:label "Parking brake mandatory"@en .
+
+ns2:parkingBrakeMaximumGradient a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Parking brake maximum gradient"@en .
+
+ns2:parkingBrakeType a owl:ObjectProperty ;
+    rdfs:label "Parking brake type"@en .
+
+ns2:passByNoiseLevel a owl:DatatypeProperty ;
+    rdfs:label "Pass-by noise level"@en .
+
+ns2:passesThroughTunnel a owl:ObjectProperty ;
+    rdfs:label "Passes through tunnel"@en .
+
+ns2:permissiblePayload a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Permissible payload"@en .
+
+ns2:permissionChargingElectricEnergyTractionStandstill a owl:DatatypeProperty ;
+    rdfs:label "Permission for charging electric energy storage for traction purposes at standstill"@en .
+
+ns2:permitUseReflectivePlates a owl:DatatypeProperty ;
+    rdfs:label "Permit of use of reflective plates"@en .
+
+ns2:permittedContactForce a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Contact force permitted"@en .
+
+ns2:phaseInfo a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Information on phase separation"@en .
+
+ns2:phaseSeparation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Phase separation"@en .
+
+ns2:platform a owl:ObjectProperty ;
+    rdfs:label "Platform"@en .
+
+ns2:platformHeight a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Height of platform"@en .
+
+ns2:platformId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Platform id"@en .
+
+ns2:portableBoardingAids a owl:DatatypeProperty ;
+    rdfs:label "Portable boarding aids"@en .
+
+ns2:positionOnA a owl:ObjectProperty ;
+    rdfs:label "Position on A"@en .
+
+ns2:positionOnB a owl:ObjectProperty ;
+    rdfs:label "Position on B"@en .
+
+ns2:preventRegenerativeBrakeUse a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Prevent regenerative brake use"@en .
+
+ns2:previousVehicleType a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Previous vehicle type"@en .
+
+ns2:prioritySeats a owl:DatatypeProperty ;
+    rdfs:label "Priority seats"@en .
+
+ns2:prmAccessibleToilets a owl:DatatypeProperty ;
+    rdfs:label "Prm accessible toilets"@en .
+
+ns2:profileNumberSemiTrailers a owl:ObjectProperty ;
+    rdfs:label "Standard combined transport profile number for semi-trailers"@en .
+
+ns2:profileNumberSwapBodies a owl:ObjectProperty ;
+    rdfs:label "Standard combined transport profile number for swap bodies"@en .
+
+ns2:protectionLegacySystem a owl:ObjectProperty ;
+    rdfs:label "Train protection legacy system"@en .
+
+ns2:publicNetworkRoaming a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "GSM-R existence of roaming to public networks"@en .
+
+ns2:publicNetworkRoamingDetails a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "GSM-R details on roaming to public networks"@en .
+
+ns2:qNvdriverAdhes a owl:ObjectProperty ;
+    rdfs:label "Q_NVDRIVER_ADHES"@en .
+
+ns2:qNvemrrls a owl:ObjectProperty ;
+    rdfs:label "Q_NVEMRRLS"@en .
+
+ns2:qNvsbtsmperm a owl:DatatypeProperty ;
+    rdfs:label "Q_NVSBTSMPERM"@en .
+
+ns2:quasiStaticGuidingForce a owl:DatatypeProperty ;
+    rdfs:label "Quasi static guiding force"@en .
+
+ns2:quieterRoutesExemptedCountry a owl:ObjectProperty ;
+    rdfs:label "Quieter route exempted country"@en .
+
+ns2:radioNetworkId a owl:DatatypeProperty ;
+    rdfs:label "Radio Network ID"@en .
+
+ns2:radioSwitchOverSpecialConditions a owl:DatatypeProperty ;
+    rdfs:label "Radio switch over special conditions"@en .
+
+ns2:railInclination a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Rail inclination"@en .
+
+ns2:railInclinationMeasurement a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Rail inclination measurement"@en .
+
+ns2:railSystemType a owl:DatatypeProperty ;
+    rdfs:label "Rail system type"@en .
+
+ns2:raisedPantographsDistanceAndSpeed a owl:DatatypeProperty ;
+    rdfs:label "Requirements for number of raised pantographs and spacing between them, at the given speed"@en .
+
+ns2:reasonsEtcsRadioBlockCenterReject a owl:ObjectProperty ;
+    rdfs:label "Reasons for which an ETCS Radio Block Center can reject a train"@en .
+
+ns2:redLightsRequired a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Steady red lights required"@en .
+
+ns2:referencePassByNoiseLevel a owl:DatatypeProperty ;
+    rdfs:label "Reference pass-by noise level"@en .
+
+ns2:relativeDistanceDangerPoint a owl:DatatypeProperty ;
+    rdfs:label "Relative distance of the danger point"@en .
+
+ns2:relativePosition a owl:DatatypeProperty ;
+    rdfs:label "Relative position"@en .
+
+ns2:requiredSandingOverride a owl:DatatypeProperty ;
+    rdfs:label "Sanding override by driver required"@en .
+
+ns2:rollingStockFireCategory a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Fire category of rolling stock required"@en .
+
+ns2:safeConsistLengthInformationNecessary a owl:ObjectProperty ;
+    rdfs:label "Safe consist length information from on-board necessary for access the line and SIL"@en .
+
+ns2:schematicOverviewOP a owl:DatatypeProperty ;
+    rdfs:label "Schematic overview of the operational point"@en .
+
+ns2:shortestDistanceBetweenPantographsInContactWithOCL a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Shortest distance between pantographs in contact with OCL"@en .
+
+ns2:siding a owl:ObjectProperty ;
+    rdfs:label "Siding"@en .
+
+ns2:sidingId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Identification of siding"@en .
+
+ns2:signalId a owl:DatatypeProperty ;
+    rdfs:label "Name of signal"@en .
+
+ns2:signalOrientation a owl:ObjectProperty ;
+    rdfs:label "Signal orientation"@en .
+
+ns2:signalType a owl:ObjectProperty ;
+    rdfs:label "Type of signal"@en .
+
+ns2:signallingSystemType a owl:ObjectProperty ;
+    rdfs:label "Signalling system type"@en .
+
+ns2:sleepingPlaces a owl:DatatypeProperty ;
+    rdfs:label "Sleeping places"@en .
+
+ns2:snowIceHailConditions a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Snow ice hail conditions"@en .
+
+ns2:solNature a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Nature of Section of Line"@en .
+
+ns2:specialAreaType a owl:ObjectProperty ;
+    rdfs:label "Special area type"@en .
+
+ns2:specialTunnelArea a owl:ObjectProperty ;
+    rdfs:label "Special tunnel area"@en .
+
+ns2:specificInformation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Specific information"@en .
+
+ns2:standardCombinedTransporRollerUnits a owl:ObjectProperty ;
+    rdfs:label "Standard combined transport profile number for roller units"@en .
+
+ns2:standardCombinedTransportContainers a owl:ObjectProperty ;
+    rdfs:label "Standard combined transport profile number for containers"@en .
+
+ns2:startIntrinsicCoordinate a owl:DatatypeProperty ;
+    rdfs:label "Start intrinsic coordinate"@en .
+
+ns2:startLocation a owl:ObjectProperty ;
+    rdfs:label "Start of tunnel"@en .
+
+ns2:startingNoiseLevel a owl:DatatypeProperty ;
+    rdfs:label "Starting noise level"@en .
+
+ns2:state a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "State"@en .
+
+ns2:staticAxleLoadExceptionalPayload a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Static axle load under exceptional payload"@en .
+
+ns2:staticAxleLoadNormalPayload a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Static axle load under normal payload"@en .
+
+ns2:staticAxleLoadWorkingOrder a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Static axle load in working order"@en .
+
+ns2:stationaryNoiseLevel a owl:DatatypeProperty ;
+    rdfs:label "Stationary noise level"@en .
+
+ns2:structuralCategory a owl:DatatypeProperty ;
+    rdfs:label "Structural category"@en .
+
+ns2:structureCheckLocation a owl:DatatypeProperty ;
+    rdfs:label "Railway location of structures requiring specific checks"@en .
+
+ns2:subCategory a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Vehicle subcategory"@en .
+
+ns2:subsetName a owl:DatatypeProperty ;
+    rdfs:label "Name of a subset with common characteristics"@en .
+
+ns2:supportedPlatformHeight a owl:ObjectProperty ;
+    rdfs:label "Supported platform height"@en .
+
+ns2:switchProtectControlWarning a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of switch over between different protection, control and warning systems while running"@en .
+
+ns2:switchRadioSystem a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Existence of switch over between different radio systems"@en .
+
+ns2:systemSeparationInfo a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Information on system separation"@en .
+
+ns2:tNvcontact a owl:DatatypeProperty ;
+    rdfs:label "T_NVCONTACT"@en .
+
+ns2:tNvovtrp a owl:DatatypeProperty ;
+    rdfs:label "T_NVOVTRP"@en .
+
+ns2:tafTAPCode a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Primary location code developed for information exchange in accordance with the TSIs relating to telematics applications."@en .
+
+ns2:tdsMaximumMagneticField a owl:ObjectProperty ;
+    rdfs:label "Train detection system maximum magnetic field"@en .
+
+ns2:tdsMinAxleLoadVehicleCategory a owl:ObjectProperty ;
+    rdfs:label "Train detection system min axle load vehicle category"@en .
+
+ns2:temperatureRange a owl:ObjectProperty ;
+    rdfs:label "Temperature range"@en .
+
+ns2:tenClassification a owl:ObjectProperty ;
+    rdfs:label "TEN classification (of track, of platform, of siding)"@en .
+
+ns2:tenGISId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "TEN GIS identity"@en .
+
+ns2:thermalCapacityDistance a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Thermal capacity distance"@en .
+
+ns2:thermalCapacityGradient a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Thermal capacity gradient"@en .
+
+ns2:thermalCapacitySpeed a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Thermal capacity speed"@en .
+
+ns2:thermalCapacityTSIReference a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Thermal capacity TSI reference"@en .
+
+ns2:thermalCapacityTime a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Thermal capacity time"@en .
+
+ns2:tiltingSupported a owl:DatatypeProperty ;
+    rdfs:label "Indication whether tilting functions are supported by ETCS"@en .
+
+ns2:totalVehicleMass a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Total vehicle mass"@en .
+
+ns2:track a owl:ObjectProperty ;
+    rdfs:label "Track"@en .
+
+ns2:trackDirection a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Normal running direction"@en .
+
+ns2:trackId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Identification of track"@en .
+
+ns2:trackLoadCapability a owl:ObjectProperty ;
+    rdfs:label "Load capability"@en .
+
+ns2:trainControlSwitchOverSpecialConditions a owl:DatatypeProperty ;
+    rdfs:label "Train control switch over special conditions"@en .
+
+ns2:trainDetectionSystem a owl:ObjectProperty ;
+    rdfs:label "Train detection system"@en .
+
+ns2:trainDetectionSystemSpecificCheck a owl:ObjectProperty ;
+    rdfs:label "Type of track circuits to which specific checks are needed"@en .
+
+ns2:trainDetectionSystemSpecificCheckDocument a owl:DatatypeProperty ;
+    rdfs:label "Document with the procedure(s) related to the type of train detection systems declared in 1.2.1.1.6.1"@en .
+
+ns2:trainDetectionSystemType a owl:ObjectProperty ;
+    rdfs:label "Type of train detection system"@en .
+
+ns2:trainIntegrityOnBoardRequired a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Train integrity confirmation from on-board (not from driver) necessary for line access"@en .
+
+ns2:transportableOnFerry a owl:DatatypeProperty ;
+    rdfs:label "Transportable on ferry"@en .
+
+ns2:tsiCompliant a owl:DatatypeProperty ;
+    rdfs:label "Tsi compliant"@en .
+
+ns2:tsiCompliantCompositeBrakeBlocks a owl:ObjectProperty ;
+    rdfs:label "TSI compliance of rules on the use of composite brake blocks"@en .
+
+ns2:tsiCompliantFerromagneticWheel a owl:ObjectProperty ;
+    rdfs:label "TSI compliance of Ferromagnetic characteristics of wheel material required"@en .
+
+ns2:tsiCompliantMaxDistConsecutiveAxles a owl:ObjectProperty ;
+    rdfs:label "TSI compliance of maximum permitted distance between two consecutive axles"@en .
+
+ns2:tsiCompliantMaxImpedanceWheelset a owl:ObjectProperty ;
+    rdfs:label "TSI compliance of maximum permitted impedance between opposite wheels of a wheelset"@en .
+
+ns2:tsiCompliantMetalConstruction a owl:ObjectProperty ;
+    rdfs:label "TSI compliance of rules for vehicle metal construction"@en .
+
+ns2:tsiCompliantMetalFreeSpace a owl:ObjectProperty ;
+    rdfs:label "TSI compliance of rules for metal-free space around wheels"@en .
+
+ns2:tsiCompliantRSTShuntImpedance a owl:ObjectProperty ;
+    rdfs:label "TSI compliance of rules on combination of RST characteristics influencing shunting impedance"@en .
+
+ns2:tsiCompliantSandCharacteristics a owl:ObjectProperty ;
+    rdfs:label "TSI Compliance of rules on sand characteristics"@en .
+
+ns2:tsiCompliantSanding a owl:ObjectProperty ;
+    rdfs:label "TSI compliance of sanding"@en .
+
+ns2:tsiCompliantShuntDevices a owl:ObjectProperty ;
+    rdfs:label "TSI compliance of rules on shunt assisting devices"@en .
+
+ns2:tsiPantographHead a owl:ObjectProperty ;
+    rdfs:label "Accepted TSI compliant pantograph heads"@en .
+
+ns2:tsiSwitchCrossing a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "TSI compliance of in service values for switches and crossings"@en .
+
+ns2:tunnelDocRef a owl:DatatypeProperty ;
+    rdfs:label "Reference to a document available from the IM with precise description of the tunnel"@en .
+
+ns2:tunnelIdentification a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Tunnel identification"@en .
+
+ns2:tunnelKilometerEnd a owl:DatatypeProperty ;
+    rdfs:label "Tunnel kilometer end"@en .
+
+ns2:tunnelKilometerStart a owl:DatatypeProperty ;
+    rdfs:label "Tunnel kilometer start"@en .
+
+ns2:typeVersionId a owl:ObjectProperty ;
+    rdfs:label "Type version id"@en .
+
+ns2:typeVersionNumber a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Type version number"@en .
+
+ns2:umax2 a owl:DatatypeProperty ;
+    rdfs:label "Umax2 for lines referred to in sections 7.4.2.2.1 and 7.4.2.11.1 of Regulation (EU)1301/2014."@en .
+
+ns2:uopid a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Unique OP ID"@en .
+
+ns2:usesGroup555 a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "GSM-R use of group 555"@en .
+
+ns2:vNvallowovtrp a owl:DatatypeProperty ;
+    rdfs:label "V_NVALLOWOVTRP"@en .
+
+ns2:vNvsupovtrp a owl:DatatypeProperty ;
+    rdfs:label "V_NVSUPOVTRP"@en .
+
+ns2:validityEndDate a owl:DatatypeProperty ;
+    rdfs:label "Validity end date"@en .
+
+ns2:validityStartDate a owl:DatatypeProperty ;
+    rdfs:label "Validity start date"@en .
+
+ns2:vehicleContactForce a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "Vehicle contact force"@en .
+
+ns2:vehicleKeeper a owl:ObjectProperty ;
+    rdfs:label "Vehicle keeper"@en .
+
+ns2:vehicleKinematicGaugeOther a owl:DatatypeProperty ;
+    rdfs:label "Vehicle kinematic gauge other"@en .
+
+ns2:vehicleMaxSandingOutput a owl:DatatypeProperty ;
+    rdfs:label "Vehicle max sanding output"@en .
+
+ns2:vehicleNumber a owl:DatatypeProperty ;
+    rdfs:label "Vehicle number"@en .
+
+ns2:vehiclePantographHead a owl:DatatypeProperty ;
+    rdfs:label "Vehicle pantograph head"@en .
+
+ns2:vehicleSeries a owl:DatatypeProperty ;
+    rdfs:label "Vehicle series"@en .
+
+ns2:vehicleType a owl:ObjectProperty ;
+    rdfs:label "Vehicle type"@en .
+
+ns2:voiceGSMRNetwork a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Voice GSM-R network"@en .
+
+ns2:voiceRadioCompatible a owl:ObjectProperty ;
+    rdfs:label "Radio system compatibility voice"@en .
+
+ns2:wheelSetGauge a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Nominal track gauge"@en .
+
+ns2:wheelSetGaugeChangeoverFacility a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Wheelset gauge changeover facility"@en .
+
+geo:Feature a owl:Class .
+
+geo:Geometry a owl:Class .
+
+geo:hasGeometry a owl:ObjectProperty .
+
+rdf:Bag a owl:Class .
+
+rdfs:Resource a owl:Class .
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#Point> a owl:Class ;
+    rdfs:label "Point" ;
+    rdfs:comment """ 
+Uniquely identified by lat/long/alt. i.e.
+
+spaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),
+  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).
+
+sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).
+  """,
+        """A point, typically described using a coordinate system relative to Earth, such as WGS84.
+  """ ;
+    rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#location> a owl:ObjectProperty .
+
+skos:Concept a owl:Class .
+
+org:Organization a owl:Class .
+
+ns2:Track a owl:Class ;
+    rdfs:label "Track"@en ;
+    dcterms:created "2020-07-29"^^xsd:date ;
+    dcterms:modified "2022-07-07"^^xsd:date ;
+    rdfs:comment "A running track that is used for train service movements."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <https://wiki3.railml.org/DataModel/3.2/IS/EARoot/EA400.htm> ;
+    rdfs:subClassOf ns2:InfrastructureObject ;
+    ns1:term_status "stable" .
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> a owl:Class ;
+    rdfs:label "SpatialThing" .
+
+ns2:TopologicalObject a owl:Class ;
+    rdfs:label "Topological Object"@en .
+
+ns2:InfrastructureObject a owl:Class ;
+    rdfs:label "Infrastructure object"@en .
+
+ns2: a owl:Ontology ;
+    rdfs:label "ERA vocabulary"@en .
+
