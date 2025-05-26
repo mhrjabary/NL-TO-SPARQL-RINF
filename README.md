@@ -11,6 +11,7 @@ This research paper presents a zero-shot LLM-Based approach to translate natural
 
 ## Design and Implementation
 Our proposed test bed is used to explore the ability of LLM to generate SPARQL queries and retrieve information from a domain-specific KG using NL questions using two scenarios. As illustrated the Figure below, our method involves generating an enhanced prompt augmented with in-domain KG ontology vocabulary information extracted from the Register of Infrastructure (RINF) ontology KG. The generated prompt is then fed to the LLM in the form of a zero-shot prompt[15][8 ] to translate the NL question into a SPARQL query, which is used to obtain the answer from the ERA SPARQL endpoint. All Project Design and Implemetation Figures and ALgorithms [can be found here](https://github.com/mhrjabary/NL-TO-SPARQL-RINF/tree/main/Figures)
+
 ![Proposed Model Design](https://github.com/user-attachments/assets/880db58b-ee9d-44bc-a51a-24151e081392)
 
 
